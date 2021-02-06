@@ -1,9 +1,11 @@
 Secure Code Review Checklist
 
 ## Security and Data Privacy
-- [ ] Does this code open the software up for
+### [ ] Does this code open the software up for
 security vulnerabilities?
-- [ ] Are authorization and authentication handled
+- [ ] OWASP Top 10
+
+### [ ] Are authorization and authentication handled
 in the right way?
 - [ ] Is sensitive data like user data, credit card
 information securely handled and stored?
@@ -14,5 +16,12 @@ information like keys, passwords, or usernames?
 security vulnerabilities such as cross-site
 scripting, SQL injection, does it do input
 sanitization and validation?
+  - [ ] Are inputs from external sources validated?
 - [ ] Is data retrieved from external APIs or libraries
 checked accordingly?
+
+
+## Exception handling
+- [ ] Do all methods have appropriate exceptions?
+- [ ] Does the error shown to users open us up for attacks, ie. includes stack trace, ids, etc? 
+- [ ] 
