@@ -4,6 +4,7 @@ Secure Code Review Checklist
 - [ ] OWASP Top 10
 
 ## [ ] Are authorization and authentication handled in the right way?
+- [ ] Are sessions handled correctly
 ## [ ] Is sensitive data like user data, credit card information securely handled and stored?
 ## [ ] Is the right encryption used?
 ## [ ] Does this code change reveal some secret information like keys, passwords, or usernames?
