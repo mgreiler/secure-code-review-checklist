@@ -13,6 +13,7 @@ Secure Code Review Checklist
 ## Input Validation
 - [ ] Are inputs from external sources validated?
 - [ ] Is user input validated by testing type, length, format, and range, and by enforcing appropriate limits?
+- [ ] Are there flaws in regular expression that cause problems with data validation? 
 - [ ] Are exact match approaches used whenever possible? 
 - [ ] If exact match is not possible, is the content of string variables checked for only expected values (allowed list)? 
 - [ ] If allowed listing is not feasable, are entries rejected that contain inapproriated values such as binary data, escape sequences, and comment characters (block list)?
