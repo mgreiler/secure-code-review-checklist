@@ -47,16 +47,17 @@ Secure Code Review Checklist
 
 ## Session Management
 - [ ] no session parameters passed in URLs
-☐ session cookies expire in a reasonably short time
-☐ session cookies are encrypted☐ session data is being validated
-☐ private data in cookies is kept to a minimum
-☐ application avoids excessive cookie use
-☐ session id is complex
-☐ session storage is secure
-☐ application properly handles invalid session ids
-☐ session limits such as inactivity timeout are enforced
-☐ logout invalids the session
-☐ session resources are released when session invalidated
+- [ ] session cookies expire in a reasonably short time
+- [ ] session cookies are encrypted
+- [ ] session data is being validated
+- [ ] private data in cookies is kept to a minimum
+- [ ] application avoids excessive cookie use
+- [ ] session id is complex
+- [ ] session storage is secure
+- [ ] application properly handles invalid session ids
+- [ ] session limits such as inactivity timeout are enforced
+- [ ] logout invalids the session
+- [ ] session resources are released when session invalidated
 
 
 ## Is sensitive data like user data, credit card information securely handled and stored?
