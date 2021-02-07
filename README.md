@@ -1,10 +1,31 @@
 Secure Code Review Checklist
 
-## What security vulnerabilities do you think is this code susceptible to?
-- [ ] Thinking about the OWASP Top 10, or CWE top 25, which parts of the code do you think are more at risks?
-- [ ] Which potential attacks can you envision attacking this part of the code?
+## TLDR;
+- [ ] What security vulnerabilities is this code susceptible to?
+- [ ] Are authorization and authentication handled in the right way?
+- [ ] Is (user) input validated, sanitized, and escaped to prevent security attacks such as cross-site scripting, SQL injection?
+- [ ] Is sensitive data like user data, credit card information securely handled and stored?
+- [ ] Does this code change reveal some secret information like keys, passwords, or usernames?
+- [ ] Is data retrieved from external APIs or libraries checked accordingly?
+- [ ] Does error handling or logging expose us to vulnerabilities?
+- [ ] Is the right encryption used?
 
-## Are authorization and authentication handled in the right way?
+## Input Validation
+  - [ ] Are inputs from external sources validated?
+  - [ ] Is user input validated by testing type, length, format, and range, and by enforcing appropriate limits?
+  - [ ] Are exact match approaches used whenever possible? If exact match is not possible, is the content of string variables checked for only expected values (allowed list)? If allowed listing is not feasable, are entries rejected that contain inapproriated values such as binary data, escape sequences, and comment characters (block list)?
+- [ ] Are XML documents validate against their schemas?
+- [ ] Do you see string concatenations for user input? 
+- [ ] Are SQL statements dynamically created by using user input?
+- [ ] Is data validated on the server side?
+- [ ] Is there a strong separation between data and commands?
+- [ ] Is there a strong separation between data and client-side scripts?
+- [ ] Is contextual escaping used before passing data to SQL, LDAP, OS and third-party commands?
+- [ ] http headers are validated for each request (e.g. referrer)
+
+
+
+## Authentication and User Management
 - [ ] Are sessions handled correctly?
 - [ ] Are failure messages for invalid usernames or passwords leak information?
 - [ ] Are invalid passwords logged (which can leak sensitive pwd & user name combis)?
@@ -12,6 +33,30 @@ Secure Code Review Checklist
 - [ ] Are invalid login attempts correctly handelded with lockouts, and rate limit?
 - [ ] Does the "forgot pwd" routine leak information, vulnerable to spamming, or is the pwd send in plain text via email?
 - [ ] How and where are pwd and usernames stored, and are appropriate mechanisms such as hashing, salts, encryption in place?
+
+## Authorization
+- [ ] Is authentication and authorization the first logic executed for each request?
+- [ ] Are authorization checks granular (page and directory level)?
+- [ ] Is access to pages and data denied by default?
+- [ ] Is re-authenticate for requests that have side-effects enforced?
+- [ ] Are there clearly defined roles for authorization?
+- [ ] Can authorization be circumvented by parameter manipulation?
+- [ ] Can authorization be bypassed by cookie manipulation?
+
+## Session Management
+- [ ] no session parameters passed in URLs
+☐ session cookies expire in a reasonably short time
+☐ session cookies are encrypted☐ session data is being validated
+☐ private data in cookies is kept to a minimum
+☐ application avoids excessive cookie use
+☐ session id is complex
+☐ session storage is secure
+☐ application properly handles invalid session ids
+☐ session limits such as inactivity timeout are enforced
+☐ logout invalids the session
+☐ session resources are released when session invalidated
+
+
 ## Is sensitive data like user data, credit card information securely handled and stored?
 ## Is the right encryption used?
 - [ ] Are the encryption algorithms used state-of-the art and compliant with standards such as FIPS-140?
@@ -29,13 +74,7 @@ organization considers ‘strong encryption’ to be, and all implementation ins
 • Cryptographic modules must be tested under high load with multithreaded implementations, and each piece of
 encrypted data should be checked to ensure it was encrypted and decrypted correctly.
 ## Does this code change reveal some secret information like keys, passwords, or usernames?
-## If code deals with user input, does it address security vulnerabilities such as cross-site scripting, SQL injection, does it do input sanitization and validation?
-  - [ ] Are inputs from external sources validated?
-  - [ ] Is user input validated by testing type, length, format, and range, and by enforcing appropriate limits?
-  - [ ] Are exact match approaches used whenever possible? If exact match is not possible, is the content of string variables checked for only expected values (whitelist)? If withelisting is not feasable, are entries rejected that contain inapproriated values such as binary data, escape sequences, and comment characters?
-- [ ] Are XML documents validate against their schemas?
-- [ ] Do you see string concatenations for user input? 
-- [ ]  Are SQL statements dynamically created by using user input?
+
 
 ## Is data retrieved from external APIs or libraries checked accordingly?
 
