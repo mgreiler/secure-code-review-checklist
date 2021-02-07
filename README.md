@@ -1,7 +1,8 @@
 Secure Code Review Checklist
 
-## Does this code open the software up for security vulnerabilities?
+## What security vulnerabilities do you think is this code susceptible to?
 - [ ] Thinking about the OWASP Top 10, or CWE top 25, which parts of the code do you think are more at risks?
+- [ ] Which potential attacks can you envision attacking this part of the code?
 
 ## Are authorization and authentication handled in the right way?
 - [ ] Are sessions handled correctly?
@@ -11,7 +12,7 @@ Secure Code Review Checklist
 - [ ] Are invalid login attempts correctly handelded with lockouts, and rate limit?
 - [ ] Does the "forgot pwd" routine leak information, vulnerable to spamming, or is the pwd send in plain text via email?
 - [ ] How and where are pwd and usernames stored, and are appropriate mechanisms such as hashing, salts, encryption in place?
-## [ ] Is sensitive data like user data, credit card information securely handled and stored?
+## Is sensitive data like user data, credit card information securely handled and stored?
 ## Is the right encryption used?
 - [ ] Are the encryption algorithms used state-of-the art and compliant with standards such as FIPS-140?
 - [ ] Minimum key sizes to be supported
@@ -27,8 +28,8 @@ company or regulatory specifications. High level decisions need to be made (and 
 organization considers ‘strong encryption’ to be, and all implementation instances should adhere to this standard.
 • Cryptographic modules must be tested under high load with multithreaded implementations, and each piece of
 encrypted data should be checked to ensure it was encrypted and decrypted correctly.
-## [ ] Does this code change reveal some secret information like keys, passwords, or usernames?
-## [ ] If code deals with user input, does it address security vulnerabilities such as cross-site scripting, SQL injection, does it do input sanitization and validation?
+## Does this code change reveal some secret information like keys, passwords, or usernames?
+## If code deals with user input, does it address security vulnerabilities such as cross-site scripting, SQL injection, does it do input sanitization and validation?
   - [ ] Are inputs from external sources validated?
   - [ ] Is user input validated by testing type, length, format, and range, and by enforcing appropriate limits?
   - [ ] Are exact match approaches used whenever possible? If exact match is not possible, is the content of string variables checked for only expected values (whitelist)? If withelisting is not feasable, are entries rejected that contain inapproriated values such as binary data, escape sequences, and comment characters?
@@ -36,7 +37,7 @@ encrypted data should be checked to ensure it was encrypted and decrypted correc
 - [ ] Do you see string concatenations for user input? 
 - [ ]  Are SQL statements dynamically created by using user input?
 
-## [ ] Is data retrieved from external APIs or libraries checked accordingly?
+## Is data retrieved from external APIs or libraries checked accordingly?
 
 
 ## Exception handling
