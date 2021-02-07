@@ -57,34 +57,13 @@ Secure Code Review Checklist
 - [ ] Are logouts invalidating the session?
 - [ ] Are session resources released when session invalidated?
 
-
-## Is sensitive data like user data, credit card information securely handled and stored?
 ## Encryption & Cryptography
 - [ ] Are the encryption algorithms used state-of-the art and compliant with standards such as FIPS-140?
 - [ ] Minimum key sizes to be supported
 - [ ] What types of data must be encrypted
-• Is the right type of cryptographic algorithm being used, is data being hashed that should be encrypted with a
-symmetric key? If there is no way to safely transfer the symmetric key to the other party, is public key cryptographic
-algorithms being employed?
-• In any cryptographic system the protection of the key is the most important aspect. Exposure of the symmetric or
-private key means the encrypted data is no longer private. Tightly control who has access to enter or view the keys,
-and how the keys are used within applications.
-• Any code implementing cryptographic processes and algorithms should be reviewed and audited against a set of
-company or regulatory specifications. High level decisions need to be made (and continually revisited) as to what an
-organization considers ‘strong encryption’ to be, and all implementation instances should adhere to this standard.
-• Cryptographic modules must be tested under high load with multithreaded implementations, and each piece of
-encrypted data should be checked to ensure it was encrypted and decrypted correctly.
-
-☐ sensitive data has been secured in memory, storage and transit 
-☐ restricted areas require SSL 
-☐ sensitive information not passed to/from non-SSL pages 
-☐ proper SSL set up 
-☐ SSL provider supports only strong algorithms 
-☐ web-based admin tools require SSL 
-☐ decryption services protected by authentication/authorization 
-☐ require SSL for login page 
-☐ securely store cryptographic keys
-
+- [ ] Is sensitive data been secured in memory, storage and transit? 
+- [ ] Do restricted areas require SSL? 
+- [ ] Is sensitive information passed to/from non-SSL pages?
 
 ## Exception handling
 - [ ] Do all methods have appropriate exceptions?
