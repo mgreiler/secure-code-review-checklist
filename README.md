@@ -25,8 +25,6 @@ Secure Code Review Checklist
 - [ ] Is contextual escaping used before passing data to SQL, LDAP, OS and third-party commands?
 - [ ] http headers are validated for each request (e.g. referrer)
 
-
-
 ## Authentication and User Management
 - [ ] Are sessions handled correctly?
 - [ ] Are failure messages for invalid usernames or passwords leak information?
@@ -46,22 +44,22 @@ Secure Code Review Checklist
 - [ ] Can authorization be bypassed by cookie manipulation?
 
 ## Session Management
-- [ ] no session parameters passed in URLs
-- [ ] session cookies expire in a reasonably short time
-- [ ] session cookies are encrypted
-- [ ] session data is being validated
-- [ ] private data in cookies is kept to a minimum
-- [ ] application avoids excessive cookie use
-- [ ] session id is complex
-- [ ] session storage is secure
-- [ ] application properly handles invalid session ids
-- [ ] session limits such as inactivity timeout are enforced
-- [ ] logout invalids the session
-- [ ] session resources are released when session invalidated
+- [ ] Are session parameters passed in URLs?
+- [ ] Do session cookies expire in a reasonably short time?
+- [ ] Are session cookies encrypted?
+- [ ] Is session data being validated?
+- [ ] Is private data in cookies kept to a minimum?
+- [ ] Does the application avoid excessive cookie use?
+- [ ] Is the session id complex?
+- [ ] Is the session storage secure?
+- [ ] Does the application properly handle invalid session ids?
+- [ ] Are session limits e.g., inactivity timeouts enforced?
+- [ ] Are logouts invalidating the session?
+- [ ] Are session resources released when session invalidated?
 
 
 ## Is sensitive data like user data, credit card information securely handled and stored?
-## Is the right encryption used?
+## Encryption & Cryptography
 - [ ] Are the encryption algorithms used state-of-the art and compliant with standards such as FIPS-140?
 - [ ] Minimum key sizes to be supported
 - [ ] What types of data must be encrypted
@@ -76,15 +74,30 @@ company or regulatory specifications. High level decisions need to be made (and 
 organization considers ‘strong encryption’ to be, and all implementation instances should adhere to this standard.
 • Cryptographic modules must be tested under high load with multithreaded implementations, and each piece of
 encrypted data should be checked to ensure it was encrypted and decrypted correctly.
-## Does this code change reveal some secret information like keys, passwords, or usernames?
 
-
-## Is data retrieved from external APIs or libraries checked accordingly?
+☐ sensitive data has been secured in memory, storage and transit 
+☐ restricted areas require SSL 
+☐ sensitive information not passed to/from non-SSL pages 
+☐ proper SSL set up 
+☐ SSL provider supports only strong algorithms 
+☐ web-based admin tools require SSL 
+☐ decryption services protected by authentication/authorization 
+☐ require SSL for login page 
+☐ securely store cryptographic keys
 
 
 ## Exception handling
 - [ ] Do all methods have appropriate exceptions?
-- [ ] Does the error shown to users open us up for attacks, ie. includes stack trace, ids, etc? 
+- [ ] Does the error shown to users reveal sensitive information or open us up for attacks, ie. includes stack trace, ids, etc? 
+- [ ] Does the application fails securely when exceptions occur?
+- [ ] Are system errors never shown to users?
+- [ ] Are resources released and transactions rolled back when there is an error?
+- [ ] Are all user / system actions are logged?
+- [ ] Do we make sure that sensitive information is not logged (e.g. passwords)?
+- [ ] Do we make sure we have logs or all important user management events (e.g. password reset)?
+- [ ] Are unusual activity such as multiple login attempts logged?
+- [ ] Do logs have enough detail to reconstruct events for audit purposes?
+
 
 ## Reducing the attack surface
 - [ ] Are there any alarms or monitoring to spot if they are accessing sensitive data that they shouldn’t be? This could
