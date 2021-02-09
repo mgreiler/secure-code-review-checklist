@@ -16,7 +16,7 @@
 - [ ] Are there flaws in regular expression that cause problems with data validation? 
 - [ ] Are exact match approaches used whenever possible? 
 - [ ] If exact match is not possible, is the content of string variables checked for only expected values (allowed list)? 
-- [ ] If allowed listing is not feasable, are entries rejected that contain inapproriated values such as binary data, escape sequences, and comment characters (block list)?
+- [ ] If allowed listing is not feasible, are entries rejected that contain inappropriate values such as binary data, escape sequences, and comment characters (block list)?
 - [ ] Are XML documents validate against their schemas?
 - [ ] Do you see string concatenations for user input? 
 - [ ] Are SQL statements dynamically created by using user input?
@@ -29,9 +29,9 @@
 ## Authentication and User Management
 - [ ] Are sessions handled correctly?
 - [ ] Are failure messages for invalid usernames or passwords leak information?
-- [ ] Are invalid passwords logged (which can leak sensitive pwd & user name combis)?
-- [ ] Are the pwd requriements (lenghts/complexity) approriated?
-- [ ] Are invalid login attempts correctly handelded with lockouts, and rate limit?
+- [ ] Are invalid passwords logged (which can leak sensitive pwd & user name combinations)?
+- [ ] Are the pwd requirements (lengths/complexity) appropriated?
+- [ ] Are invalid login attempts correctly handled with lockouts, and rate limit?
 - [ ] Does the "forgot pwd" routine leak information, vulnerable to spamming, or is the pwd send in plain text via email?
 - [ ] How and where are pwd and usernames stored, and are appropriate mechanisms such as hashing, salts, encryption in place?
 
@@ -66,9 +66,9 @@
 - [ ] Do restricted areas require SSL? 
 - [ ] Is sensitive information passed to/from non-SSL pages?
 
-## Exception handling
+## Exception Handling
 - [ ] Do all methods have appropriate exceptions?
-- [ ] Does the error shown to users reveal sensitive information or open us up for attacks, ie. includes stack trace, ids, etc? 
+- [ ] Does the error shown to users reveal sensitive information or open us up for attacks, .ie. includes stack trace, ids, etc.? 
 - [ ] Does the application fails securely when exceptions occur?
 - [ ] Are system errors never shown to users?
 - [ ] Are resources released and transactions rolled back when there is an error?
@@ -102,7 +102,7 @@ erase/modify the log and b) can’t deny their actions?
 apply to all types of users, not only administrators.
 - [ ] Will changes be compatible with existing countermeasures, or security code, or will new code/countermeasures
 need to be developed?
-- [ ] Is the change attempting to introduce some non-centralized security code module, instead of re-using or extending
+- [ ] Is the change attempting to introduce some non-centralized security code module, instead of re-using or extending 
 an existing security module?
 - [ ] Is the change adding unnecessary user levels or entitlements that will complicate the attack surface.
 - [ ] If the change is storing PII or confidential data, is all of the new information absolutely necessary? There is little value
@@ -110,7 +110,7 @@ in increasing the risk to an application by storing the social security numbers 
 used.
 - [ ] Does application configuration cause the attack surface to vary greatly depending on configuration settings, and is
 that configuration simple to use and alert the administrator when the attack surface is being expanded?
-- [ ] Could the change be done in a different way that would reduce the attack surface, i.e instead of making help items
+- [ ] Could the change be done in a different way that would reduce the attack surface, i.e. instead of making help items
 searchable and storing help item text in a database table beside the main username/password store, providing static
 help text on HTML pages reduces the risk through the ‘help’ interface.
 - [ ] Is information stored on the client that should be stored on the server?
