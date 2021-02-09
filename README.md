@@ -1,4 +1,4 @@
-Secure Code Review Checklist
+# Secure Code Review Checklist
 
 ## TLDR;
 - [ ] What security vulnerabilities is this code susceptible to?
