@@ -113,3 +113,6 @@ that configuration simple to use and alert the administrator when the attack sur
 searchable and storing help item text in a database table beside the main username/password store, providing static
 help text on HTML pages reduces the risk through the ‘help’ interface.
 - [ ] Is information stored on the client that should be stored on the server?
+
+
+For more insights into code reviews go to [awesomecodereviews.com](https://www.awesomecodereviews.com/).
